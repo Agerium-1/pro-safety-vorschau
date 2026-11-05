@@ -18,6 +18,14 @@
 		window.matchMedia('(min-width: 961px)').addEventListener('change', () => setOpen(false));
 	}
 
+	// Hero-Film nur auf großen Bildschirmen und ohne Wunsch nach reduzierter Bewegung laden
+	const heroVideo = document.querySelector('[data-hero-video]');
+	if (heroVideo && window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)').matches) {
+		heroVideo.src = heroVideo.dataset.src;
+		heroVideo.addEventListener('playing', () => heroVideo.classList.add('is-playing'), { once: true });
+		heroVideo.play().catch(() => {});
+	}
+
 	// FAQ-Themen
 	const tabs = document.querySelectorAll('.faq__tab');
 	tabs.forEach((tab) => {

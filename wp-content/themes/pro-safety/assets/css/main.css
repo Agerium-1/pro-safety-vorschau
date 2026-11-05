@@ -27,7 +27,8 @@
 	--silver: #c0c4ca;
 	--silver-light: #eef0f3;
 	--silver-dark: #a8adb4;
-	--silver-grad: linear-gradient(135deg, #eef0f3 0%, #a8adb4 100%);
+	--silver-grad: linear-gradient(180deg, #ffffff 0%, #e9ecf1 55%, #d5dae1 100%);
+	--navy-grad: linear-gradient(180deg, var(--navy-700) 0%, var(--navy) 100%);
 	--paper: #f5f7fa;
 
 	/* Rollen, helle Grundfläche. Dunkle Bereiche überschreiben sie (siehe unten). */
@@ -50,7 +51,7 @@
 	--accent-border: var(--silver);
 	--accent-hover-border: rgb(11 37 69 / 0.35);
 	--glow: rgb(11 37 69 / 0.06);
-	--btn-bg: var(--navy);
+	--btn-bg: var(--navy-grad);
 	--btn-bg-hover: var(--navy-700);
 	--btn-text: #ffffff;
 	--input-bg: #ffffff;
@@ -73,17 +74,17 @@
 .site-header, .hero, .page-hero, .site-footer, .service-card--cta, .contact__media, .contact-tile--accent {
 	--bg: var(--navy);
 	--bg-alt: var(--navy-900);
-	--surface: var(--tint);
-	--surface-2: rgb(255 255 255 / 0.1);
+	--surface: rgb(255 255 255 / 0.05);
+	--surface-2: rgb(255 255 255 / 0.09);
 	--heading: #ffffff;
 	--text: #dde2ea;
 	--text-soft: #c9cfd8;
 	--muted: #b3bbc6;
 	--faint: #a3acb9;
-	--line: var(--line);
+	--line: rgb(255 255 255 / 0.12);
 	--line-strong: rgb(255 255 255 / 0.26);
-	--tint: var(--tint);
-	--tint-strong: var(--line);
+	--tint: rgb(255 255 255 / 0.05);
+	--tint-strong: rgb(255 255 255 / 0.1);
 	--accent: var(--silver);
 	--accent-text: var(--silver-light);
 	--accent-soft-bg: var(--tint-strong);
@@ -189,7 +190,7 @@ h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.25; letter-spacin
 .muted { color: var(--muted); }
 .accent { color: var(--accent); }
 .accent-grad {
-	background: linear-gradient(100deg, #ffffff 0%, var(--silver-light) 35%, var(--silver-dark) 100%);
+	background: linear-gradient(100deg, #ffffff 0%, #e8ebf0 45%, #b9c0c9 100%);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
@@ -674,7 +675,7 @@ h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.25; letter-spacin
 .hero__trust > span { color: var(--faint); white-space: nowrap; }
 .hero__trust ul { display: flex; flex-wrap: wrap; gap: 14px 32px; list-style: none; margin: 0; padding: 0; }
 .hero__trust li { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--text); }
-.hero__trust img { width: 30px; height: 30px; border-radius: 50%; background: #fff; }
+.hero__trust img { width: 32px; height: 32px; object-fit: contain; border-radius: 8px; background: #fff; padding: 3px; }
 .hero__trust .icon { width: 26px; height: 26px; color: var(--accent); }
 
 @media (max-width: 960px) {
@@ -762,7 +763,7 @@ a.service-card:hover { border-color: var(--accent-hover-border); transform: tran
 .service-card__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
 .service-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
 a.service-card:hover .service-card__media img { transform: scale(1.05); }
-.service-card__media::after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(0deg, var(--surface), transparent); }
+.service-card__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgb(7 26 51 / 0.38) 0%, rgb(7 26 51 / 0) 42%); }
 .service-card__media .icon-badge { position: absolute; left: 18px; bottom: 14px; z-index: 1; }
 .service-card__body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 6px 22px 24px; }
 .service-card__body p { font-size: 14.5px; color: var(--muted); flex: 1; }
@@ -773,7 +774,7 @@ a.service-card:hover .service-card__media img { transform: scale(1.05); }
 	gap: 16px;
 	padding: 26px;
 	background:
-		radial-gradient(400px 300px at 100% 0%, rgb(192 196 202 / 0.28), transparent 60%),
+		radial-gradient(420px 300px at 100% 0%, rgb(192 196 202 / 0.16), transparent 62%),
 		linear-gradient(160deg, var(--navy), var(--navy-900));
 	border-color: var(--line);
 	color: var(--text-soft);
@@ -841,7 +842,7 @@ a.service-card:hover .service-card__media img { transform: scale(1.05); }
 	padding: 30px;
 	border-radius: var(--radius-lg);
 	background:
-		radial-gradient(420px 260px at 20% 0%, var(--accent-border), transparent 70%),
+		radial-gradient(520px 300px at 0% 0%, var(--tint-strong), transparent 70%),
 		var(--surface);
 	border: 1px solid var(--line);
 	transition: border-color .3s;
@@ -860,7 +861,7 @@ a.service-card:hover .service-card__media img { transform: scale(1.05); }
 	background: var(--surface);
 	border: 1px solid var(--line);
 }
-.cert-card img { grid-column: 2; grid-row: 1 / span 2; width: 56px; height: 56px; border-radius: 50%; background: #fff; padding: 3px; }
+.cert-card img { grid-column: 2; grid-row: 1 / span 2; width: 60px; height: 60px; object-fit: contain; border-radius: 12px; background: #fff; padding: 6px; border: 1px solid var(--line); }
 .cert-card h3 { grid-column: 1; grid-row: 1; font-size: 1.1rem; }
 .cert-card p { grid-column: 1; font-size: 14px; color: var(--muted); }
 
@@ -936,7 +937,7 @@ a.service-card:hover .service-card__media img { transform: scale(1.05); }
 	border: 1px solid var(--line-strong);
 	transition: transform .3s var(--ease), background-color .3s, border-color .3s;
 }
-.faq__item[open] .faq__toggle { transform: rotate(180deg); background: var(--navy); border-color: var(--navy); }
+.faq__item[open] .faq__toggle { transform: rotate(180deg); background: var(--navy); border-color: var(--navy); color: #fff; }
 .faq__item p { margin: -6px 0 0; padding-bottom: 24px; color: var(--muted); max-width: 64ch; }
 @media (max-width: 960px) {
 	.faq__inner { grid-template-columns: 1fr; }
@@ -1203,3 +1204,50 @@ a.contact-tile:hover { border-color: var(--line-strong); }
 
 /* Bereitschaft auf der Leistungsübersicht (Revision 11/2026). */
 .standby { margin-top: 24px; max-width: 520px; }
+
+/* Bildreihe „Aus dem Einsatz“ (echte Kundenfotos, Revision 11/2026). */
+.gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.gallery li { aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--line); }
+.gallery img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; transition: transform .6s var(--ease); }
+.gallery li:hover img { transform: scale(1.04); }
+@media (max-width: 960px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+.cert-card--wide img { width: 124px; }
+/* Fünf Siegel im Qualitätsblock: LMS-Karte über zwei Spalten. */
+.quality__grid { grid-template-rows: auto auto auto; grid-auto-flow: dense; }
+.quality__grid .rating-card { grid-row: span 3; }
+.quality__grid .cert-card--wide { grid-column: span 2; }
+@media (max-width: 960px) { .quality__grid .rating-card { grid-row: auto; } }
+@media (max-width: 560px) { .quality__grid .cert-card--wide { grid-column: auto; } }
+/* Hochkant-Video (Veranstaltungsschutz). Lokal gehostet, lädt erst beim Abspielen. */
+.video-split { align-items: center; }
+.video-frame { margin: 0; justify-self: center; width: min(360px, 100%); }
+.video-frame video { display: block; width: 100%; height: auto; aspect-ratio: 464 / 832; border-radius: var(--radius-lg); border: 1px solid var(--line); background: #000; }
+
+/* ==========================================================================
+   Feinschliff (Revision 11/2026): filigraner, ruhiger, Verläufe im Farbschema
+   ========================================================================== */
+h1, h2 { font-weight: 650; }
+h3 { font-weight: 650; }
+.btn--primary { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.14), 0 10px 24px -14px rgb(7 26 51 / 0.55); }
+.hero .btn--primary, .page-hero .btn--primary, .site-header .btn--primary, .contact-tile--accent .btn--primary {
+	border-color: rgb(255 255 255 / 0.55);
+	box-shadow: inset 0 1px 0 #ffffff, 0 10px 26px -14px rgb(0 0 0 / 0.6);
+}
+.btn--ghost { border-color: var(--line-strong); }
+.icon-badge { border-radius: 12px; }
+.icon-badge--glass { background: rgb(7 26 51 / 0.55); border-color: rgb(255 255 255 / 0.22); }
+.service-card, .cert-card, .rating-card, .value-card, .contact-tile { box-shadow: 0 1px 2px rgb(11 37 69 / 0.04); }
+a.service-card:hover { box-shadow: 0 22px 44px -28px rgb(11 37 69 / 0.4); }
+.split__media > img, .contact__media, .gallery li { box-shadow: 0 30px 60px -40px rgb(11 37 69 / 0.45); }
+.section--alt { background: linear-gradient(180deg, var(--paper) 0%, #eef1f5 100%); }
+.service-card--cta, .contact-tile--accent, .faq__tab[aria-selected="true"] { background-image: radial-gradient(420px 300px at 100% 0%, rgb(192 196 202 / 0.14), transparent 62%), linear-gradient(160deg, var(--navy-700) -20%, var(--navy) 45%, var(--navy-900) 100%); }
+/* Hero-Film: liegt über dem Foto, blendet erst ein, wenn er wirklich läuft. */
+.hero__video {
+	position: absolute; inset: 0; z-index: -2;
+	width: 100%; height: 100%;
+	object-fit: cover; object-position: 60% 50%;
+	opacity: 0; transition: opacity 1.2s var(--ease);
+}
+.hero__video.is-playing { opacity: 1; }
+@media (max-width: 899px) { .hero__video { display: none; } }
