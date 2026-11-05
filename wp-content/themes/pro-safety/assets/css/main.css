@@ -275,7 +275,7 @@ h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.25; letter-spacin
 }
 
 .brand { display: block; flex: none; }
-.brand img { height: 40px; width: auto; }
+.brand img { height: 38px; width: auto; }
 
 .nav { margin-inline: auto; }
 .nav__list, .nav__list ul { list-style: none; margin: 0; padding: 0; }
@@ -370,12 +370,15 @@ h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.25; letter-spacin
 
 @media (max-width: 1100px) {
 	.header-phone__num { display: none; }
+	.brand img { height: 32px; }
+	.site-header__bar { gap: 12px; }
+	.nav__list > li > a { padding: 10px 10px; }
 }
 
 @media (max-width: 960px) {
 	.site-header { padding-top: 8px; }
 	.site-header__bar { height: 64px; padding: 0 8px 0 16px; gap: 12px; }
-	.brand img { height: 34px; }
+	.brand img { height: 30px; }
 	.nav, .header-actions .btn { display: none; }
 	.header-actions { margin-left: auto; gap: 8px; }
 	.header-phone__icon { width: 46px; height: 46px; border-radius: 12px; }
@@ -488,7 +491,7 @@ h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.25; letter-spacin
 	gap: 40px;
 	padding-block: clamp(48px, 6vw, 72px);
 }
-.footer-brand img { height: 44px; width: auto; }
+.footer-brand img { height: 84px; width: auto; }
 .footer-brand p { margin-top: 20px; font-size: 14.5px; color: var(--muted); max-width: 34ch; }
 .footer-col h3 {
 	font-size: 15px;
@@ -1197,3 +1200,6 @@ a.contact-tile:hover { border-color: var(--line-strong); }
 .contact-tile--accent { background: linear-gradient(160deg, var(--navy), var(--navy-900)); border-color: transparent; color: var(--text-soft); }
 .contact-tile--accent strong { font-size: 22px; }
 @media (max-width: 960px) { .contact-page { grid-template-columns: 1fr; } }
+
+/* Bereitschaft auf der Leistungsübersicht (Revision 11/2026). */
+.standby { margin-top: 24px; max-width: 520px; }
